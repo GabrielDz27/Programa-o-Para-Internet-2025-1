@@ -2,3 +2,11 @@ table, td, caption,th {
     border: 1px solid black;
     border-collapse: collapse;
 }
+
+body {
+    margin-left: 50px;
+}
+
+span, p, header {
+    margin-left: 20px;
+}
