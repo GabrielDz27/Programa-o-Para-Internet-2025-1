@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+    <style>
+        span {color:green}
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all 5s ease-in 0s;
+        }
+        #box1:hover{
+            width:200px;
+            background-color: green;
+        }
+        .box{
+            color: aqua;
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            flex-shrink:0;
+            animation: rotacao 1s ease-in 0s infinite;
+        }
+        @keyframes rotacao {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>trasições em css</h2>
+    <p>Serve para definir um temporização para mudanças que podem ocorrer nos elementos html</p>
+    <code>
+        elemento{ <br>
+            transition: <span>prorpriedade</span>
+                        <span>duração</span>
+                        <span>funçao</span>
+                        <span> delay;</span>
+        }
+    </code>
+    <div id="box1">box</div>
+    <div class="box">box</div>
+
+</body>
+</html>

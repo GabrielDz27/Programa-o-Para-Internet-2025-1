@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid da aula
+    </title>
+    <style>
+        .container{
+            display:grid;   
+            height: 50svh;
+            grid-template-areas: 
+            "header header header"
+            "main    .    sidebar"
+            "footer footer footer"
+             ;
+             grid-template-rows:  1fr 2fr 3fr;
+        }
+        .box {
+            border: 1px solid black;
+        }
+        #box1{
+            grid-area: header;
+        }
+        #box2{
+            grid-area: header;
+        }
+        #box3{
+            grid-area: header;
+        }
+        #box4{
+            grid-area: main;
+        }
+        #box5{
+            grid-area: sidebar;
+        }
+        #box6{
+            grid-area: footer;
+        }
+        #box7{
+            grid-area: footer;
+        }
+        #box8{
+            grid-area: footer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">item</div>
+        <div class="box" id="box2">item</div>
+        <div class="box" id="box3">item</div>
+        <div class="box" id="box4">item</div>
+        <div class="box" id="box5">item</div>
+        <div class="box" id="box6">item</div>
+        <div class="box" id="box7">item</div>
+        <div class="box" id="box8">item</div>
+    </div>
+    
+</body>
+</html>
