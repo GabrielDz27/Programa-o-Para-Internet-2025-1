@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bandeiras</title>
+    <style>
+        a{
+            color: aliceblue;
+        }
+        div{ 
+          
+            background-color: rgb(49, 41, 41);
+        }
+        .bandeira {
+            margin: 20px;
+            width: 300px;
+            height:250px;
+        }
+        div#japao.bandeira{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+        }
+        div#japao.bandeira>div.circulo{
+            
+            background-color: red;
+            
+            border-radius: 50%;
+            width: 130px;
+            height: 130px;
+        }
+        div#alemanha.bandeira>div.linha3{
+            background-color: black;
+            height: 33%;
+        }
+        div#alemanha.bandeira>div.linha1{
+            background-color:  red;
+            height: 33%;
+        }
+        div#alemanha.bandeira>div.linha2{
+            background-color: yellow;
+            height: 33%;
+        }
+        div#holanda.bandeira>div.linha3{
+
+            height: 33%;
+            background-color: white;
+        }
+        div#holanda.bandeira>div.linha1{
+            height: 33%;
+            background-color: red;
+        }
+        div#holanda.bandeira>div.linha2{
+            height: 33%;
+            background-color: blue;
+            
+        }
+        div#italia.bandeira{
+            display: flex;
+            justify-content: space-between;
+        }
+        div#italia.bandeira>div.linha3{
+            width: 33.33%;
+            background-color: white;
+        }
+        div#italia.bandeira>div.linha1{
+            width: 33.33%;
+            background-color: red;
+        }
+        div#italia.bandeira>div.linha2{
+            width: 33.33%;
+            background-color: green;
+
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div>
+        <a href="#japao">Bandeira Japão</a>
+        <a href="#alemanha">Bandeira alemanha</a>
+        <a href="#holanda">Bandeira holanda</a>
+        <a href="#italia">Bandeira italia</a>
+        <hr>
+        <div class="bandeira" id="japao">  
+            <div class="circulo"></div>    
+        </div>
+        <div class="bandeira" id="alemanha">
+            <div class="linha3"></div>
+            <div class="linha1"></div>
+            <div class="linha2"></div>
+        </div>
+        <div class="bandeira" id="holanda">
+            <div class="linha1"></div>
+            <div class="linha3"></div> 
+            <div class="linha2"></div>
+        </div>
+        <div class="bandeira" id="italia"> 
+            <div class="linha1"></div>
+            <div class="linha3"></div> 
+            <div class="linha2"></div>
+        </div>
+    </div>    
+</body>
+</html>

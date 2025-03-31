@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>caht </title>
+    <style>
+        .regra1{
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            
+        }
+        p{
+            font-size: large;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin: 20px;
+        }
+        .chat1{
+            height: 300px;
+            border: 1px solid black;
+            display: grid;
+            clear: right;
+            border-radius: 10%;
+            background-color: bisque; 
+        }
+        .conversad{
+            display: flex;
+            height: 40px;
+            width: 150px;
+            justify-content: start;
+            border-radius: 5%;
+            background-color: rgb(120, 120, 237);
+            margin: 2px;
+            margin-right: 20px;
+        }
+        .conversae{
+            display: flex;
+            height: 40px;
+            width: 150px;
+            justify-content: end;
+            border-radius: 5%;
+            background-color: rgb(176, 65, 65);
+            margin: 2px;
+            margin-left: 10px;
+        }
+        h4{
+            display: flex;
+            justify-content: start;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="regra1">
+        <div class="chat1">
+            <h4>chat</h4>
+            <div class="conversad">
+                <p>ola</p>
+            </div>
+            <div class="conversae">
+                <p>ola</p>
+            </div>
+            <div class="conversad">
+               <p>tudo bem?</p>
+            </div>
+            <div class="conversae">
+                <p>sim</p>
+            </div>
+            <div style="display: flexbox;">
+                <input type="text" style="width: 100px; border-radius: 10px; margin: 5px;">
+                <button> enviar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
