@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 layout slide show</title>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        #item1{
+            margin: 5px;
+            border-radius: 10px;
+            display: flex;
+            border-radius: 10px;
+            justify-content: center;
+            width: 100px;
+            height: 800px;
+            background-color: red;
+            transition: all 1s ease-in 0s;
+        }
+        #item1:hover{
+            margin: 5px;
+            width:500px;
+        }
+        #item2{
+            margin: 5px;
+            display: flex;
+            border-radius: 10px;
+            width: 100px;
+            justify-content: center;
+            height: 800px;
+            background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fbr.pinterest.com%2Fraularquiteto%2Fbackground%2F&psig=AOvVaw0UvhHbCpqTCBCilQTfu2hT&ust=1743642293483000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCMC30-2TuIwDFQAAAAAdAAAAABAE');
+            transition: all 1s ease-in 0s;
+        }
+        #item2:hover{
+            margin: 5px;
+            width:500px;
+        }
+        #item3{
+            margin: 5px;
+            display: flex;
+            border-radius: 10px;
+            width: 100px;
+            justify-content: center;
+            height: 800px;
+            background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fbr.freepik.com%2Ffotos%2Fpaisagem-de-inverno&psig=AOvVaw2ATpTvbTe7-yMTe4KV-o8l&ust=1743642045407000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiLtvySuIwDFQAAAAAdAAAAABAE');
+    background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+            transition: all 1s ease-in 0s;
+        }
+        #item3:hover{
+            margin: 5px;
+            width:500px;
+        }
+        #item4{
+            margin: 5px;
+            display: flex;
+            border-radius: 10px;
+            width: 100px;
+            height: 800px;
+            justify-content: center;
+            background-color: red;
+            transition: all 1s ease-in 0s;
+        }
+        #item4:hover{
+            width:500px;
+        }
+        #item5{
+            margin: 5px;
+            display: flex;
+            border-radius: 10px;
+            width: 100px;
+            height: 800px;
+            justify-content: center;
+            background-color: red;
+            transition: all 1s ease-in 0s;
+        }
+        #item5:hover{
+            width:500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="item1">item</div>
+        <div id="item2">item</div>
+        <div id="item3">item</div>
+        <div id="item4">item</div>
+        <div id="item5">item</div>
+    </div>
+</body>
+</html>

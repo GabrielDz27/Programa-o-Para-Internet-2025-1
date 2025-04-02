@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista de contatos</title>
+    <style>
+        body{
+            background-color: aliceblue;
+            
+        }
+        .caixa{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+        .lista{
+            border-radius: 10px;
+            border: 1px solid black;
+            background-color: white;
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            align-content: center;
+        }
+        .contato{
+            
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            
+        }
+        img{  
+            margin: 10px;
+            width: 50px;
+            border-radius: 50%;
+        }
+        span {
+            color: gray;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: small;
+        }
+        .descricao{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="caixa">
+        <div class="lista">
+            <div class="contato" id="contato1">
+                <img src="imagensia/joao.jpeg" alt="joao"> 
+                <div class="descricao"><p>joao</p><span>10/10/2010</span>    
+                </div>
+            </div>
+            <div class="contato" id="contato2">
+                <img src="imagensia/joao.jpeg" alt="joao"> 
+                <div class="descricao">
+                    <p>Maria</p> 
+                    <span>10/10/2010</span>    
+                </div>
+            
+            </div>
+                
+            <div class="contato" id="contato3">
+                <img src="imagensia/joao.jpeg" alt="joao"> fulano
+            </div>
+            <div class="contato" id="contato4"></div>
+            <div class="contato" id="contato5"></div>
+            <div class="contato" id="contato6"></div>
+            <div class="contato" id="contato7"></div>
+            <div class="contato" id="contato8"></div>
+            <div class="contato" id="contato9"></div>
+            <div class="contato" id="contato10"></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -6,16 +6,22 @@
     <title>bandeiras</title>
     <style>
         a{
-            color: aliceblue;
+            color: rgb(34, 40, 45);
         }
-        div{ 
-          
-            background-color: rgb(49, 41, 41);
+        div.caixa{ 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+            border-radius: 10px;
+            background-color: rgb(231, 230, 230);
         }
         .bandeira {
+            border-radius: 10px;
             margin: 20px;
-            width: 300px;
-            height:250px;
+            width: 600px;
+            height:450px;
         }
         div#japao.bandeira{
             display: flex;
@@ -26,12 +32,14 @@
         div#japao.bandeira>div.circulo{
             
             background-color: red;
-            
+
             border-radius: 50%;
-            width: 130px;
-            height: 130px;
+            width: 300px;
+            height: 300px;
         }
         div#alemanha.bandeira>div.linha3{
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
             background-color: black;
             height: 33%;
         }
@@ -40,6 +48,9 @@
             height: 33%;
         }
         div#alemanha.bandeira>div.linha2{
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            clear:inherit;
             background-color: yellow;
             height: 33%;
         }
@@ -49,13 +60,16 @@
             background-color: white;
         }
         div#holanda.bandeira>div.linha1{
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
             height: 33%;
             background-color: red;
         }
         div#holanda.bandeira>div.linha2{
             height: 33%;
             background-color: blue;
-            
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
         }
         div#italia.bandeira{
             display: flex;
@@ -66,38 +80,56 @@
             background-color: white;
         }
         div#italia.bandeira>div.linha1{
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
             width: 33.33%;
             background-color: red;
         }
         div#italia.bandeira>div.linha2{
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
             width: 33.33%;
             background-color: green;
 
         }
-
+        body{
+            background-color: grey;
+        }
+        #links{
+            margin: 30px;
+            flex-direction: row;
+        }
+        hr{
+            color: rgb(37, 31, 31);
+        }
     </style>
 </head>
 <body>
     
-    <div>
-        <a href="#japao">Bandeira Japão</a>
-        <a href="#alemanha">Bandeira alemanha</a>
-        <a href="#holanda">Bandeira holanda</a>
-        <a href="#italia">Bandeira italia</a>
+    <div class="caixa">
+        <div id="links">
+            <a href="#japao">Bandeira Japão</a>
+            <a href="#alemanha">Bandeira alemanha</a>
+            <a href="#holanda">Bandeira holanda</a>
+            <a href="#italia">Bandeira italia</a>
+        </div>
         <hr>
         <div class="bandeira" id="japao">  
             <div class="circulo"></div>    
         </div>
+        <hr>
         <div class="bandeira" id="alemanha">
             <div class="linha3"></div>
             <div class="linha1"></div>
             <div class="linha2"></div>
         </div>
+        <hr>
         <div class="bandeira" id="holanda">
             <div class="linha1"></div>
             <div class="linha3"></div> 
             <div class="linha2"></div>
         </div>
+        <hr>
         <div class="bandeira" id="italia"> 
             <div class="linha1"></div>
             <div class="linha3"></div> 

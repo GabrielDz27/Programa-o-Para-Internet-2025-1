@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>layout flex</title>
+    <style>
+        
+        body{
+            display: flex;
+            height: 100svh;
+        }
+        nav{
+            background-color: orange;
+            display:flex;
+            width: 25%;
+        }
+        header, footer{
+            height: 25%;
+            background-color: blue;
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            width: 75%;
+            justify-content: space-between;
+            background-color: purple;
+        }
+        
+    </style>
+</head>
+<body>
+    
+        <nav>
+            <div>
+                navegção
+            </div>
+        </nav>
+        <main>
+            <header>
+                <div>
+                    cabeçalho
+                </div>
+            </header>
+            <div>
+                corpo
+            </div>
+            <footer>
+                <div>
+                    rodape
+                </div>
+            </footer>
+        </main>
+    
+</body>
+</html>
