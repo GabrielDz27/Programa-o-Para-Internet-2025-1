@@ -7,8 +7,37 @@
     <style>
         .container{
             display: grid;
-            height: 100svh;
+            height: 100vh;
+            width: 100vw;
+            grid-template-areas: 
+            "header header  header"
+            "left    main    right"
+            "leftn   main   right2"
+            "leftn  footer  footer"
+             ;
+             grid-template-columns: 25% 50% 25%;
+             grid-gap:  10px;
         }
+        .box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+        .box:nth-of-type(even){
+            background-color: brown;
+        }
+        .box:nth-of-type(odd){
+            background-color:goldenrod;
+        }
+        #box1{grid-area:header;}
+        #box2{grid-area:left;}
+        #box3{grid-area: main;}
+        #box4{grid-area: right;}
+        #box5{grid-area: leftn;}
+        #box6{grid-area: right2;}
+        #box7{grid-area: footer;}
     </style>
 </head>
 <body>

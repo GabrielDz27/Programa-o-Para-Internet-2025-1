@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 layout adaptative</title>
+    <style>
+        @media (min-width:500px){
+            .container{
+                display: grid;
+                width:100vw;
+                height:100vh;
+                grid-template-areas: 
+                "header    header    header"
+                "nav-left  banner nav-right"
+                "nav-left   main  nav-right"
+                "nav-left  lew    nav-right"
+                "footer   footer    footer"
+                ;
+                grid-template-columns: 25% 50% 25%;
+                grid-template-rows: 15% 10% 60% 5% 10% ;
+            }
+        }
+        @media (max-width:500px){
+            .container{
+                display: flex;
+                flex-direction: column;
+            }
+            #box4{
+                width: 60%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">1</div>
+        <div class="box" id="box2">2</div>
+        <div class="box" id="box3">3</div>
+        <div class="box" id="box4">4</div>
+        <div class="box" id="box5">5</div>
+        <div class="box" id="box6">6</div>
+        <div class="box" id="box7">7</div>
+    </div>
+</body>
+</html>
