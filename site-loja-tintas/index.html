@@ -1,87 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-    <style>
-        .conteudo{
-            display: grid;
-            height: 100vh;
-            width: 100vw;
-            grid-template-areas: 
-            "header header  header"
-            "left    main    right"
-            "leftn   main   right2"
-            "leftn  footer  footer"
-             ;
-             grid-template-columns: 25% 50% 25%;
-            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serifs ;
-             grid-auto-rows: 10% 80%;
-        }
-        #corpo{
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items : center;
-            background-color: azure;
-            grid-area: main;
-        }
-        #header{
-            border-radius: 10px;
-            grid-area: header;
-            background-color: rgb(68, 68, 121);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .navegação{
-            display: flex;
-        }
-        a{
-            margin: 5px;
-            color: white;
-            font-size: large;
-        }
-        .imagem{
-            position: absolute;
-            left: 10px;
-            top: 10px;
-            width: 500px;
-            height: 40px;
-        }
-        #titulologo{
-            display: flex;
-            justify-content: flex-start;
-            flex-direction: row;
-        }
-    </style>
+  <meta charset="UTF-8" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tintas Correia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .conteudo {
+      display: grid;
+      min-height: 100vh;
+      grid-template-areas: 
+        "header header header"
+        "left main right"
+        "leftn main right2"
+        "leftn footer footer";
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-rows: auto 1fr auto auto;
+    }
+
+    #header {
+      grid-area: header;
+      background-color: #444479;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #titulologo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .imagem {
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 10px;
+    }
+
+    nav .navegação {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #ffc107;
+    }
+
+    #corpo {
+      grid-area: main;
+      padding: 30px;
+      background-color: azure;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .Escrita section {
+      margin-bottom: 30px;
+    }
+
+    .Escrita h2 {
+      color: #cc2a36;
+      margin-bottom: 10px;
+    }
+</style>
 </head>
 <body>
-    <div class="conteudo">
-        <header id="header">   
-            <div class="imagem">
-                <div id="titulologo">
-                    <img width="100px" src="imagens/latadetinta.png" alt="lata de tinta">
-                    <h1 style="color: beige; margin: 5px;"> Tintas Correia </h1>
-                </div>
-            </div> 
-            <nav>
-                <div class="navegação">
-                    <a href="index.html"> <span> Home </span> </a>
-                    <a href="produtos.html"> <span> Produtos </span> </a>
-                    <a href="carrinho.html"> <span> Carrinho </span> </a>
-                    <a href="contato.html"> <span> Contato </span> </a>
-                </div>
-            </nav>
-        </header>
-        <div id="corpo">
-            <div class="Escrita">
-                <H1>Tintas</H1>
-                <p></p>
-            </div>          
+  <div class="conteudo">
+    <header id="header">
+      <div id="titulologo">
+        <img width="100" src="imagens/latadetinta.png" alt="lata de tinta" />
+        <h1>Tintas Correia</h1>
+      </div>
+      <nav>
+        <div class="navegação">
+          <a href="index.html">Home</a>
+          <a href="produtos.html">Produtos</a>
+          <a href="carrinho.html">Carrinho</a>
+          <a href="contato.html">Contato</a>
         </div>
+      </nav>
+    </header>
+
+    <div id="corpo">
+      <div class="Escrita">
+        <section>
+          <h2>Sobre a Tintaville</h2>
+          <p>
+            A <strong>Tintaville</strong> nasceu da paixão por cores e pela transformação de ambientes. Fundada em 2022 por especialistas em pintura e decoração, nossa missão é oferecer <strong>tintas de alta qualidade</strong>, com <strong>atendimento personalizado</strong> e <strong>preços acessíveis</strong> para todos os tipos de projetos.
+          </p>
+          <p>
+            Com sede em São Paulo e vendas para todo o Brasil, nossa loja conta com uma variedade incrível de cores, acabamentos e marcas renomadas, além de uma linha própria desenvolvida com tecnologia de ponta e excelente cobertura.
+          </p>
+        </section>
+
+        <section>
+          <h2>Por que comprar na Tintaville?</h2>
+          <ul>
+            <li>Variedade Incrível: Mais de 5.000 cores disponíveis em linha.</li>
+            <li>Tintas Premium: Alta durabilidade, secagem rápida e cobertura perfeita.</li>
+            <li>Atendimento Especializado: Equipe que ajuda você a escolher a tinta ideal.</li>
+            <li>Entrega Rápida: Enviamos para todo o Brasil.</li>
+            <li>Simulador de Ambientes: Veja como sua cor vai ficar antes de comprar!</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Garantia de Qualidade</h2>
+          <p>
+            Todas as nossas tintas possuem <strong>garantia de 5 anos</strong> contra desbotamento, descascamento ou mofo.
+            Se houver qualquer problema, você recebe uma nova tinta <strong>sem custo</strong>, desde que as instruções de aplicação tenham sido seguidas corretamente.
+          </p>
+        </section>
+
+        <section class="promo">
+          <h2>Promoção Especial - Mês das Cores</h2>
+          <p>Na compra acima de <strong>R$ 200</strong>, você ganha:</p>
+          <ul>
+            <li>10% de desconto</li>
+            <li>1 rolo de pintura profissional grátis</li>
+            <li>Participação no sorteio de uma <strong>consultoria de decoração online</strong></li>
+          </ul>
+          <p><strong>Promoção válida até 30 de abril!</strong></p>
+        </section>
+      </div>
     </div>
+  </div>
 </body>
 </html>
