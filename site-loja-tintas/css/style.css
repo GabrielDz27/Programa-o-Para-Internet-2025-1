@@ -241,13 +241,12 @@ h1 {
     padding: 15px;
     width: 250px;
     text-align: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .box:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
 .box img {
@@ -263,8 +262,7 @@ h1 {
 }
 
 .box span {
-    display: block;
-    font-weight: bold;
+   
     margin-bottom: 10px;
     color: #008000;
 }
@@ -272,4 +270,11 @@ h1 {
 .box p {
     font-size: 0.95em;
     color: #555;
+}
+
+.div_linha_carrinho {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
 }
