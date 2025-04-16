@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Set Interval</h1>
+    <p>
+        A função set interva do navegadir permite você cadastrar um 
+        intervalo de disparo, em que uma função será executado a daca passagem
+        desse intervalo.
+    </p>
+    <p id="data">
+        <script>
+            pdata = document.getElementById('data');
+
+            setInterval(atualizaData,1000);
+
+            function atualizaData(){
+                
+                d = new Date();
+                
+                pdata.innerHTML = `${d.getDay()}/${d.getMonth()}/${d.getFullYear()} -- `+
+                `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+            }
+           // clearInterval(1);
+            
+
+
+        </script>  
+    </p>
+    
+</body>
+</html>
