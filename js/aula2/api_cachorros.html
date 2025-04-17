@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog</title>
+    <style>
+        body{
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        #poster{width:200px;}
+        #lista>img{
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Imagens de Dogs</h1>
+    <img id="poster">
+    <hr>
+    <div id="lista">
+
+    </div>
+    <script>
+        poster = document.querySelector('#poster');
+        lista = document.querySelector('#lista');
+        arrayDogs=[];
+
+        if(localStorage.key("listadog")){
+            arrayDogs = JSON.parse(localStorage.getItem("listadog"));
+            console.log(typeof(arrayDogs));
+            arrayDogs.forEach((element) => {
+                addDogList(element)
+            });
+        }
+
+        function buscadog(){
+            fetch ("https://dog.ceo/api/breeds/image/random")
+            .then ((r) =>{return r.json()})
+            .then ((o) =>{
+                console.log(o);
+                showdog(o.message);
+                addDogList(o.message);
+                arrayDogs.push(o.message);
+                localStorage.setItem("listadog",JSON.stringify(arrayDogs));
+            })
+        }
+        function showdog(urldog){
+            poster.src=urldog;
+        }
+        function addDogList(urldog){
+            img=document.createElement("img");
+            img.src=urldog;
+            lista.appendChild(img);
+        }
+        document.addEventListener("keypress",buscadog);
+    </script>
+</body>
+</html>

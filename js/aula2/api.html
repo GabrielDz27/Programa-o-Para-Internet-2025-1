@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="msg">
+
+    </p>
+    <script>
+        array=[]
+        document.addEventListener("keypress",fetch_menssages);
+        function fetch_menssages (){
+            const url = "https://api.chucknorris.io/jokes/random";
+            fetch(url).then(
+                (resposta)=>{
+                    return resposta.json()
+                }
+            ).then(
+                (r)=>{
+                    //document.querySelector("#msg").innerHTML=r.value;
+                    array.push(r.value)
+                    //array.push(r.value)
+                    show_menssage();
+                }
+            ).catch(erro=>{
+                p=document.createElement("p");
+                p.innerHTML="Acabou";
+                document.querySelector("#msg").appendChild(p)    
+            });
+        }
+            
+        function show_menssage(){
+            p=document.createElement("p");
+            p.innerHTML=array[array.length-1];
+            document.querySelector("#msg").appendChild(p)
+        }
+    </script>
+</body>
+</html>

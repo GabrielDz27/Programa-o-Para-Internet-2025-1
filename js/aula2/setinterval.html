@@ -6,31 +6,59 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Set Interval</h1>
-    <p>
+    <div>
+        <h1>Set Interval</h1>
+        <p>
         A função set interva do navegadir permite você cadastrar um 
         intervalo de disparo, em que uma função será executado a daca passagem
         desse intervalo.
-    </p>
+        </p>
+    </div>
+    <div>
+        <button id="play"> Play |> </button>
+        <button id="stop"> Stop || </button>
+    </div>
+    <hr>
+    <p>Aqui</p>
+    <div id="cronometro">
+            
+    </div>
+    
     <p id="data">
         <script>
-            pdata = document.getElementById('data');
+            let pdata = document.getElementById('data');
 
             setInterval(atualizaData,1000);
 
             function atualizaData(){
                 
-                d = new Date();
+                let p = new Date();
+                let s = p;
                 
-                pdata.innerHTML = `${d.getDay()}/${d.getMonth()}/${d.getFullYear()} -- `+
-                `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+                pdata.innerHTML = `${p.getDay()}/${p.getMonth()}/${p.getFullYear()} -- `+
+                `${p.getHours()}:${p.getMinutes()}:${p.getSeconds()}`
+
             }
-           // clearInterval(1);
-            
-
-
+            clearInterval(0);
         </script>  
     </p>
-    
+    <script>
+        document.getElementById("play").addEventListener("click",playc);
+        let agora
+        let nump
+        function playc(){
+            agora = new Date();
+            nump = agora.getSeconds();
+        }
+        document.getElementById("stop").addEventListener("click",stopc);
+        let antes
+        let nums
+        function stopc(){
+            antes = new Date();    
+            nums = antes.getSeconds();
+            document.getElementById("cronometro").innerHTML = Number(nums) - Number(nump)
+        }
+
+    </script>
 </body>
 </html>
