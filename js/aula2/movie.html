@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="inputmovie">Nome Filme</label>
+    <input id="inputmovie" type="text">
+    <button>Buscar</button>
+    <div id="lista"></div>
+
+    <script>
+        urlbase="https://www.ombapi.com/?s="
+        apikey="&apikey=f77bfada"
+        inpumovie=document.querySelector("inputmovie");
+        document.querySelector('button').addEventListener("click",buscaFilme)
+
+        function buscaFilme () {
+            fetch(urlbase+inpumovie.value+apikey)
+            .then((r)=>{return r.json()})
+            .then((o)=>{console.log(o)})
+        }
+    </script>
+</body>
+</html>

@@ -24,11 +24,11 @@
             })
             .then((resposta)=>{
                 console.log(resposta);
-                cotacao.innerHTML = resposta.BTCBRL.high
-                // cotacao.innerHTML = new Intl.NumberFormat("pt-br",
-                // {style:"currency",
-                // currency:"BRL"}
-                // ).format(resposta.BTCBRL)
+                // cotacao.innerHTML = resposta.BTCBRL.high
+                cotacao.innerHTML = new Intl.NumberFormat("pt-br",
+                {style:"currency",
+                currency:"BRL"}
+                ).format(resposta.BTCBRL.high)
             })
         }
     </script>
