@@ -1,59 +1,130 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cronometro</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: grey;
+        }
+
+        .div-main {
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+
+        .centralizar {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #cronometro {
+            margin: 20px;
+            font-size: 80px;
+        }
+
+        #botoes {
+            margin: 30px;
+        }
+        #paradas{
+            display: flex;
+            font-size: medium;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .paradas {
+            border-radius: 10px;
+            width: 400px;
+            background-color: rgb(208, 208, 208);
+            margin: 10px;
+            gap: 30px;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="cronometro">00:00:000</div>
-    <button onclick="iniciar()">Iniciar</button>
-    <button onclick="pausar()">Pausar</button>
-    <button onclick="resetar()">Resetar</button>
-  
+    <div class="div-main">
+        <div class="centralizar">
+            <div id="cronometro">00:00:000</div>
+            <div id="botoes">
+                <button class="btn btn-success btn-large" onclick="iniciar()">Iniciar</button>
+                <button class="btn btn-danger btn-large" onclick="pausar()">Pausar</button>
+                <button class="btn btn-inverse btn-large" onclick="zerar()">zerar</button>
+            </div>
+        </div>
+        <div class="paradas centralizar">
+            <h1 class="title">Paradas</h1>
+            <div id="paradas">
+
+            </div>
+        </div>
+    </div>
     <script>
-      let inicio = null;
-      let intervalo = null;
-      let pausado = false;
-      let tempoPausado = 0;
-  
-      function atualizar() {
-        let agora = Date.now();
-        let decorrido = agora - inicio - tempoPausado;
-        const tempo = new Date(decorrido);
-        document.getElementById('cronometro').innerHTML = `${tempo.getMinutes()}:${tempo.getSeconds()}:${tempo.getMilliseconds()}`;
-      }
-  
-      function iniciar() {
-        if (!inicio) {
-          inicio = Date.now();
+        let inicio = null;
+        let intervalo = null;
+        let pausado = null;
+        let tempoPausado = 0;
+
+        function atualizar() {
+            let agora = new Date();
+            let decorrido = agora - inicio - tempoPausado;
+            const tempo = new Date(decorrido);
+            document.getElementById('cronometro').innerHTML = `${tempo.getMinutes()}:${tempo.getSeconds()}:${tempo.getMilliseconds()}`;
         }
-        if (pausado) {
-          tempoPausado += Date.now() - pausado;
-          pausado = false;
+
+        function iniciar() {
+            if (!inicio) {
+                inicio = new Date();
+            }
+            let novaData = new Date();
+            if (pausado) {
+                tempoPausado += novaData - pausado;
+                pausado = null;
+            }
+            if (!intervalo) {
+                intervalo = setInterval(atualizar, 10);
+            }
         }
-        if (!intervalo) {
-          intervalo = setInterval(atualizar, 10);
+        
+        function pausar() {
+            if (!pausado) {
+                pausado = new Date();
+                clearInterval(intervalo);
+                intervalo = null;
+
+                let agora = new Date();
+                let decorrido = agora - inicio - tempoPausado;
+                let tempo = new Date(decorrido);
+
+                let minutos = String(tempo.getMinutes()).padStart(2, '0');
+                let segundos = String(tempo.getSeconds()).padStart(2, '0');
+                let milissegundos = String(tempo.getMilliseconds()).padStart(3, '0');
+
+                let lista = document.getElementById("paradas");
+                let span = document.createElement("span");
+                span.innerHTML = `${minutos}:${segundos}:${milissegundos}`;
+                lista.appendChild(span);
+            }
+        } 
+        
+        function zerar() {
+            clearInterval(intervalo);
+            intervalo = null;
+            inicio = null;
+            pausado = null;
+            tempoPausado = 0;
+            document.getElementById('cronometro').innerHTML = '00:00:000';
         }
-      }
-  
-      function pausar() {
-        if (!pausado) {
-          pausado = Date.now();
-          clearInterval(intervalo);
-          intervalo = null;
-        }
-      }
-  
-      function resetar() {
-        clearInterval(intervalo);
-        intervalo = null;
-        inicio = null;
-        pausado = false;
-        tempoPausado = 0;
-        document.getElementById('cronometro').innerHTML = '00:00:000';
-      }
     </script>
 </body>
+
 </html>

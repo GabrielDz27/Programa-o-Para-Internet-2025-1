@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
-        body{
+        body {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -14,38 +15,44 @@
             background-color: rgb(152, 152, 255);
             height: 100vh;
         }
-        .operacao{
-            display: flex;
-            flex-direction: row;
-            
-            align-items: center;
-            margin: 10px;
-            width: 40px;
-            gap: 5px;
-        }
-        .main{
+
+        .centralizar{
             display: flex;
             flex-direction: column;
-            
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .operacao {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 10px;
+            gap: 5px;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
             background-color: antiquewhite;
             border-radius: 5px;
             margin: 5px;
             gap: 3px;
         }
-        #input{
+
+        #input {
             margin: 10px;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
-
-        }   
-        #enter{
-            font-size: 20px;
-            height: 100px;
-            width: 100px;
-            
         }
+
+        #enter {
+            font-size: 20px;
+           width: 180px;
+        }
+
         #ButtonNumber {
             align-items: center;
             justify-content: center;
@@ -54,35 +61,39 @@
             gap: 10px;
             max-width: 200px;
             margin: 10px;
-        }   
+        }
+
         #ButtonNumber button {
             width: 50px;
             height: 50px;
             font-size: 20px;
         }
-        .opera{
+
+        .opera {
             font-size: 20px;
         }
-        #numero{
+
+        #numero {
             font-size: 18px;
             width: 180px;
             text-align: right;
         }
-        .contener{
+
+        #contener {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
     </style>
 </head>
+
 <body>
     <div class="main">
         <div id="input">
-            <input size="30px" oninput="limpaNumero()" maxlength="100px" type="text" name="numero" id="numero">
-            
+            <input class="input-medium search-query" oninput="limpaNumero()" maxlength="100px" type="text" name="numero" id="numero">
         </div>
         <div id="contener">
-            <div class="button operacao">  
+            <div class="button operacao">
                 <button class="btn opera" id="dividir">
                     ÷
                 </button>
@@ -96,9 +107,8 @@
                     -
                 </button>
                 <button class="btn opera" id="deletar">
-                   C
+                    C
                 </button>
-                
             </div>
             <div id="ButtonNumber">
                 <button id="1" class="btn inere" onclick="inserirNumero(1)">1</button>
@@ -111,48 +121,49 @@
                 <button id="8" class="btn inere" onclick="inserirNumero(8)">8</button>
                 <button id="9" class="btn inere" onclick="inserirNumero(9)">9</button>
                 <button id="0" class="btn inere" onclick="inserirNumero(0)">0</button>
+            </div>
+            <div class="centralizar">
                 <button class="btn btn-primary " id="enter">
                     =
                 </button>
-              </div>
+            </div>
             
-        </div>  
+        </div>
     </div>
     <script>
-        function limpaNumero () {
+        function limpaNumero() {
             document.getElementById("numero").value = document.getElementById("numero").value.replace(/[^0-9+\-*/]/g, '');
         }
-        
-        document.getElementById("dividir").addEventListener("click", ()=>{
+
+        document.getElementById("dividir").addEventListener("click", () => {
             document.getElementById("numero").value += "/";
         })
 
-        document.getElementById("vezes").addEventListener("click", ()=>{
+        document.getElementById("vezes").addEventListener("click", () => {
             document.getElementById("numero").value += "*";
         })
 
-        document.getElementById("mais").addEventListener("click", ()=>{
+        document.getElementById("mais").addEventListener("click", () => {
             document.getElementById("numero").value += "+";
         })
 
-
-        document.getElementById("menos").addEventListener("click", ()=>{
+        document.getElementById("menos").addEventListener("click", () => {
             document.getElementById("numero").value += "-";
         })
 
-        document.getElementById("deletar").addEventListener("click", ()=>{
+        document.getElementById("deletar").addEventListener("click", () => {
             document.getElementById("numero").value = "";
         })
-       
-        function inserirNumero(numero){
+
+        function inserirNumero(numero) {
             document.getElementById("numero").value += numero;
         }
 
         document.getElementById("enter").addEventListener("click", resultado);
-        
-        function resultado () {
+
+        function resultado() {
             let numero = document.getElementById("numero").value;
-            if(document.getElementById("numero").value ){
+            if (document.getElementById("numero").value) {
                 try {
                     document.getElementById("numero").value = eval(document.getElementById("numero").value);
                 } catch (e) {
@@ -162,4 +173,5 @@
         }   
     </script>
 </body>
+
 </html>
