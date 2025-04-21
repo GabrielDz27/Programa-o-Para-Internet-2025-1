@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+    <div id="cronometro">00:00:000</div>
+    <button onclick="iniciar()">Iniciar</button>
+    <button onclick="pausar()">Pausar</button>
+    <button onclick="resetar()">Resetar</button>
+  
+    <script>
+      let inicio = null;
+      let intervalo = null;
+      let pausado = false;
+      let tempoPausado = 0;
+  
+      function atualizar() {
+        let agora = Date.now();
+        let decorrido = agora - inicio - tempoPausado;
+        const tempo = new Date(decorrido);
+        document.getElementById('cronometro').innerHTML = `${tempo.getMinutes()}:${tempo.getSeconds()}:${tempo.getMilliseconds()}`;
+      }
+  
+      function iniciar() {
+        if (!inicio) {
+          inicio = Date.now();
+        }
+        if (pausado) {
+          tempoPausado += Date.now() - pausado;
+          pausado = false;
+        }
+        if (!intervalo) {
+          intervalo = setInterval(atualizar, 10);
+        }
+      }
+  
+      function pausar() {
+        if (!pausado) {
+          pausado = Date.now();
+          clearInterval(intervalo);
+          intervalo = null;
+        }
+      }
+  
+      function resetar() {
+        clearInterval(intervalo);
+        intervalo = null;
+        inicio = null;
+        pausado = false;
+        tempoPausado = 0;
+        document.getElementById('cronometro').innerHTML = '00:00:000';
+      }
+    </script>
+</body>
+</html>
