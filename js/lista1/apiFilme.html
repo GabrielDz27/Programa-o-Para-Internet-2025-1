@@ -50,7 +50,39 @@
         </div>
     </div>
     <script>
-        
+        urlBase = "https://api.themoviedb.org/3"
+        apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGYzMTUwODE2ZmNhNTg1MTdmNGJjY2I0NjlkMTI5YyIsIm5iZiI6MTc0NTM1OTQxMS4yMzMsInN1YiI6IjY4MDgxMjMzNmUxYTc2OWU4MWVlYzM3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FIsgED0PKLQAafsaiw4hvOqL1iMnoccqjkJXTzLs_Ho"
+
+        inputFilme = document.querySelector("#inputFilme")
+        btnBuscar = document.querySelector("#btnBuscar").addEventListener("click", buscaFilme)
+        listaFilmes = document.querySelector("#listaFilmes")
+
+        function buscaFilme(){
+            const options = {
+                method: 'GET',
+                headers: {
+                    accept: 'application/json',
+                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGYzMTUwODE2ZmNhNTg1MTdmNGJjY2I0NjlkMTI5YyIsIm5iZiI6MTc0NTM1OTQxMS4yMzMsInN1YiI6IjY4MDgxMjMzNmUxYTc2OWU4MWVlYzM3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FIsgED0PKLQAafsaiw4hvOqL1iMnoccqjkJXTzLs_Ho'
+                } ,
+            };
+
+            fetch('https://api.themoviedb.org/3/authentication', options)
+                .then(res => res.json())
+                .then(res => console.log(res))
+                .catch(err => console.error(err));
+            
+            listaHtml = ''
+
+            fetch(urlBase + '/search/movie?query=' + inputFilme.value, options)
+                .then((r)=> {return r.json()})
+                .then((o)=>{
+                    console.log(o)
+                    o.results.forEach(element => {
+                        listaHtml += addMovieList(element)
+                    });
+                    document.querySelector("#listaFilmes").innerHTML= listaHtml
+                })
+        }
     </script>
 </body>
 </html>
