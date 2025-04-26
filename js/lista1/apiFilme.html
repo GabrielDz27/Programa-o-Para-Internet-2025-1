@@ -18,6 +18,7 @@
             justify-content: space-around;
             flex-wrap: wrap;
             gap: 20px;
+            margin: 20px;
         }
     </style>
 </head>
@@ -32,56 +33,70 @@
                         </a>
                         
                         <form class="navbar-search pull-right">
-                            <input type="text" class="search-query" placeholder="Search">
-                          </form>
+                            <input id="nmfilme" type="text" class="search-query" placeholder="Search">
+                            <button class="btn" id="pesquisar">pesquisar</button>
+                        </form>
                     </div>
                 </div>
                 </div>
         </div>
         <div id="filmes">
-            <div class="div_linha">
-                <div class="div_linha">
-                    <img src="" alt="">
-                    <h2 class="title">
-                    </h2>
-                    <p></p>
+            
+                <div >
                 </div>
             </div>
         </div>
     </div>
     <script>
-        urlBase = "https://api.themoviedb.org/3"
-        apiKey = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGYzMTUwODE2ZmNhNTg1MTdmNGJjY2I0NjlkMTI5YyIsIm5iZiI6MTc0NTM1OTQxMS4yMzMsInN1YiI6IjY4MDgxMjMzNmUxYTc2OWU4MWVlYzM3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FIsgED0PKLQAafsaiw4hvOqL1iMnoccqjkJXTzLs_Ho"
+        const urlBase = "https://www.omdbapi.com/?apikey=4a3b711b&s=";
 
-        inputFilme = document.querySelector("#inputFilme")
-        btnBuscar = document.querySelector("#btnBuscar").addEventListener("click", buscaFilme)
-        listaFilmes = document.querySelector("#listaFilmes")
+        const divFilmes = document.querySelector("#filmes");
 
-        function buscaFilme(){
-            const options = {
-                method: 'GET',
-                headers: {
-                    accept: 'application/json',
-                    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNGYzMTUwODE2ZmNhNTg1MTdmNGJjY2I0NjlkMTI5YyIsIm5iZiI6MTc0NTM1OTQxMS4yMzMsInN1YiI6IjY4MDgxMjMzNmUxYTc2OWU4MWVlYzM3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.FIsgED0PKLQAafsaiw4hvOqL1iMnoccqjkJXTzLs_Ho'
-                } ,
-            };
+        document.getElementById("pesquisar").addEventListener("click", buscaFilme);
 
-            fetch('https://api.themoviedb.org/3/authentication', options)
-                .then(res => res.json())
-                .then(res => console.log(res))
-                .catch(err => console.error(err));
-            
-            listaHtml = ''
+        function buscaFilme(event) {
+            event.preventDefault(); 
 
-            fetch(urlBase + '/search/movie?query=' + inputFilme.value, options)
-                .then((r)=> {return r.json()})
-                .then((o)=>{
-                    console.log(o)
-                    o.results.forEach(element => {
-                        listaHtml += addMovieList(element)
-                    });
-                    document.querySelector("#listaFilmes").innerHTML= listaHtml
+            const nmfilme = document.getElementById("nmfilme").value.trim();
+
+            divFilmes.innerHTML = "";
+            htmlreturn = ""
+            if (nmfilme === "") {
+                divFilmes.innerHTML = "<p>Digite um nome de filme para pesquisar.</p>";
+                return;
+            }
+
+            fetch(`${urlBase}${nmfilme}`)
+                .then((r) => { return r.json()})
+                .then((o) => {
+                    console.log(o.Search)
+                    if (o.Response === "True") {
+                        let cont = 0;
+                        o.Search.forEach((filme) => {
+                            if(cont%2==0){
+                                htmlreturn += `<div class="div_linha">`;
+                            }
+                            htmlreturn += `
+                                <div class="centralizar">
+                                    <img src="${filme.Poster !== "N/A" ? filme.Poster : ''}" alt="Poster" height="100">
+                                    <strong>${filme.Title}</strong> (${filme.Year})<br>
+                                </div>
+                            `;
+                            if (cont % 2 === 1) {
+                                htmlreturn += `</div>`;
+                            }
+                            cont++;
+                        });
+                        divFilmes.innerHTML = htmlreturn;
+                    } else {
+                        divFilmes.innerHTML = "<p>Nenhum filme encontrado.</p>";
+                    }
                 })
+                .catch((erro) => {
+                    const p = document.createElement("p");
+                    p.innerHTML = "Erro ao buscar filmes.";
+                    divFilmes.appendChild(p);
+                });
         }
     </script>
 </body>
